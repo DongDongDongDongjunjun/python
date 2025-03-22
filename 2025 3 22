@@ -1,0 +1,80 @@
+intt = int(input())
+intt2 = int(input())
+print("%d - %d = %d"%(intt,intt2,intt - intt2))
+print("%d * %d = %d"%(intt,intt2,intt * intt2))
+print("%d * %d = %d"%(intt,intt2,intt / intt2))
+print("%d // %d = %d"%(intt,intt2,intt // intt2))
+print("%d %% %d = %d"%(intt,intt2,intt % intt2))
+import turtle
+t = turtle.Turtle()
+t.setx(100)
+t.sety(100)
+t.setx(0)
+t.sety(0)
+
+t.clear()
+t.goto(100, 0)
+t.goto(100,100)
+t.goto(0,100)
+t.goto(0,0)
+
+t.clear()
+t.setheading(120)
+t.forward(100)
+t.setheading(240)
+t.forward(100)
+t.home()
+
+turtle.done()
+import turtle
+t = turtle.Turtle()
+t.goto(100,0)
+t.goto(100, -60)
+t.goto(-100,60)
+t.goto(-100,0)
+t.goto(0,0)
+turtle.done()
+import turtle
+t = turtle.Turtle()
+t.goto(100,0)
+t.goto(100,-30)
+t.goto(0,0)
+t.goto(0,-100)
+t.goto(-30,-100)
+t.goto(0,0)
+import turtle
+
+t = turtle.Turtle()
+t.shape('turtle')
+
+r = 50
+t.circle(r)
+t.penup()
+t.goto(100,0)
+t.pendown()
+
+r = r+30
+t.circle(r)
+t.penup()
+t.goto(200,0)
+t.pendown()
+
+r = r+30
+t.circle(r)
+
+turtle.done
+import turtle
+t = turtle.Turtle()
+t.shape('turtle')
+size = int(input("집의 크기를 입력하세요 : "))
+t.forward(size)
+t.right(90)
+t.forward(size)
+t.right(90)
+t.forward(size)
+t.right(90)
+t.forward(size)
+t.right(30)
+t.forward(size)
+t.right(120)
+t.forward(size)
