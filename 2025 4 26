@@ -1,0 +1,137 @@
+
+a = int(input("정수를 입력하시오" ))
+
+if  a % 2 == 0:
+        pr
+        int("EVEN")
+else :
+    print("ODD")
+    
+
+from random import*
+a = ['월','화','수','목','금','토','일']
+r = randint(0,6)
+print(a[r])
+
+from random import*
+
+a = [1,2,3,4,5]
+print(choices(a, [1, 1, 10, 1, 1],k=3))
+from random import*
+a = [0,1,2,3,4,5,]
+rr = choice(a)
+if rr == 0 :
+    print("Loss!")
+else :
+    print("No. %d Spot!"%rr)
+
+
+
+
+
+
+
+
+
+
+
+
+
+from random import *
+import turtle
+""""집 그리기 """
+ 사각형 그리기
+house  = turtle.Turtle()
+house.fillcolor("skyblue")
+house.begin_fill()
+house.penup()
+house.goto(200 , -200)
+house.pendown()
+house.goto(350,-200)
+house.goto(350,-50)
+house.goto(200, -50)
+house.goto(200,-200)
+house.end_fill()
+
+지붕 그리기
+house.fillcolor("magenta")
+house.penup()
+house.goto(200,-50)
+house.left(90)
+house.pendown()
+house.begin_fill() ####
+house.right(30)
+house.forward(150)
+house.right(120)
+house.forward(150)
+house.end_fill() ##
+
+line = turtle.Turtle()
+line.penup()
+line.goto(-200,-200)
+line.pendown()
+line.write("0")
+line.goto(0,-200)
+line.write("50")
+line.goto(200,-200)
+line.write("100")
+ 거북이
+t = turtle.Turtle(shape = "turtle")
+t.color("gold")
+t.penup()
+t.goto(-220,-200)
+
+
+
+g = turtle.Turtle()
+g.write("타자게임!",True,font = ("Arial",20,"bold"))
+"""타자게임"""
+단어 목록 리스트
+fruit = ["apple", "banana","strawberry","watermelon","mandarin","peach","grapes","Orange","pear","Kiwi"]
+점수 판별 변수
+score = 0
+타자 입력 횟수 변수. 범위 : 5~10
+n =  randint(5,10)
+for i in range(n):
+    s = choice(fruit)
+    #fruit 리스트 중에서 랜덤으로 선택
+    #입력한 단어를 word 변수에 저장
+    #단어 입력장 제목 : fruit
+    #보여줄 내용 : 과일명( 현재 횟수 / 전체 횟수)
+    word =turtle.textinput("fruit", '%s(%d/%d)' % (s, i+1, n))
+    # 입력한 단어와 랜덤 석택된 단어가 같으면 score 1 증가
+    if s == word : 
+        score += 1
+rate = score /n * 100
+g.penup()
+g.goto(0,-50)
+g.pendown()
+
+g.write("%d%d번 성공 !" %(score,n),True,font="bold")
+g.penup()
+g.goto(0,50)
+g.pendown()
+g.write("정확도 : %.1f%%" %rate, True,font="bold")
+
+
+
+distance = t.distance(line)/100 * rate
+t.speed(1)
+t.forward(distance)
+if rate == 100:
+    t.write("집에 데려다줘서 고마워!! ,False, ", False, "center", font = ("Arial", 15,"normal"))
+    t.left(60)
+    t.right(60)
+    t.left(60)
+    t.right(60)
+
+elif rate == 80:
+     t.write("집이 코앞인데!! 한 번만 더 시도해줘!! ", False, "center", font = ("Arial", 15,"normal"))
+
+elif rate >= 50:
+    t.write("집에 가고 싶어!! ㅠ0ㅠ ", False, "center", font = ("Arial", 15,"normal"))    
+else:
+    t.color('black')
+    t.right(360)
+    t.write("거북이가 쓰러졌어요 ㅠㅡㅠ ", False, "center",font = ("Arial," 15, "normal"))
+    t.write("거북이가 쓰러졌어요 ㅠㅡㅠ ", False, "center", font = ("Arial", 15,"normal"))
