@@ -1,0 +1,71 @@
+import tkinter as tk
+from datetime import datetime
+
+MIN_FONT_SIZE = 20
+MAX_FONT_SIZE = 60
+
+font_size = 40
+current_time = ""
+
+def time():
+    global current_time
+    now = datetime.now()
+    current_time = now.strftime('%p %I :%M:%S')
+    lbl.config(text=current_time)
+    lbl.after(1000, time)
+
+def time_insert() :
+    listbox.insert(tk.END, str(current_time))
+
+def delete_item():
+    selected = listbox.curselection()
+    if selected:
+        listbox.delete(selected[0])
+def increase_font():
+    global font_size
+    if font_size + 5 <= MAX_FONT_SIZE:
+        font_size += 5
+        lbl.config(font=("calibri", font_size, "bold"))
+def decrease_font() :
+    global font_size
+    if font_size - 5 >= MIN_FONT_SIZE:
+        font_size -= 5
+        lbl.config(font=("calibri", font_size,"bold"))
+
+win = tk.Tk()
+win.title('디지털 시계')
+win.geometry("600x400")
+win.resizable(False, True)
+
+top_frame = tk.Frame(win)
+top_frame.pack()
+lbl = tk.Label(top_frame, font=('calibri', font_size, 'bold'),
+               background='black', foreground='white')
+lbl.pack(side='left')
+
+font_frame = tk.Frame(top_frame)
+font_frame.pack(side='left', padx=10)
+
+btn_up = tk.Button(font_frame, text='+',font=('calibri', 15, 'bold'),
+                   command=increase_font)
+btn_up.pack()
+
+btn_down = tk.Button(font_frame, text='-',font=('calibri', 15, 'bold'),
+                     command=decrease_font)
+btn_down.pack()
+
+bottom_frame = tk.Frame(win)
+bottom_frame.pack()
+
+btn_save = tk.Button(bottom_frame, text="SAVE", font=("calibri", 16),
+                     bg="black", fg="white", width=6, command=time_insert)
+btn_save.pack(side='left')
+
+btn_delete = tk.Button(bottom_frame, text="DELETE", font=("calibri", 16),
+                       bg="black", fg="white", width=6, command=delete_item)
+
+btn_delete.pack(side='left')
+listbox = tk.Listbox(win, font=("calibri", 14), width=20)
+listbox.pack()
+time()
+win.mainloop()
